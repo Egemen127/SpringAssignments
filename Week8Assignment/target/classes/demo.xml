@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"> <!-- bean definitions here -->
+<bean id="Student" class="org.genspark.student">
+    <constructor-arg index="0" value="1"/>
+    <constructor-arg index="1" value="John"/>
+    <constructor-arg index="2" ref="phonelist"/>
+    <constructor-arg index="3" ref="Address"/>
+</bean>
+<bean id="Address" class="org.genspark.Address">
+    <constructor-arg index="0" value="City1"/>
+    <constructor-arg index="1" value="State1"/>
+    <constructor-arg index="3" value="00000"/>
+    <constructor-arg index="2" value="Country"/>
+</bean>
+    <bean id="phone1" class="org.genspark.Phone"><constructor-arg index="0" value="5555555555"/></bean>
+    <bean id="phone2" class="org.genspark.Phone"><constructor-arg index="0" value="1234567890"/></bean>
+<bean id="phonelist" class="java.util.ArrayList">
+    <constructor-arg>
+        <list>
+            <ref bean="phone1" />
+            <ref bean="phone2" />
+        </list>
+    </constructor-arg>
+</bean>
+</beans>
